@@ -6,6 +6,8 @@ def main():
     data_copy = data.copy()
     #Lista de data que cumple con los criterios
     data_by_criteria = []
+    #Lista de data (anteriormente ordenada por criterios), ordenada por prioridad de mayor a menor
+    data_ordered_by_priority = []
     
     #Ordenar la lista de datos por criterio
     #Por cada registro en data
@@ -34,10 +36,12 @@ def main():
             
 
         #Si la variable validation sigue True, quiere decir que el registro cumple con todos los criterios, por lo que se añade a la lista de data_by_criteria y se elimina de la lista data_copy
-        #Esto se hace para que al final de la lista ordenada se añadan los registros que cumplieron con los criterios
+        #Esto se hace para que al final de la lista ordenada se añadan los registros que NO cumplieron con los criterios
         if validation:
             data_by_criteria.append(i)
             data_copy.remove(i)
+
+
 
     print(data_by_criteria)
 
