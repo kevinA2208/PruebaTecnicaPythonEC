@@ -32,6 +32,5 @@ data = [
 ]
 
 criteria1 =  [
-        ('weight', '=', 3),
-        ('cost', '!=', 151)
+        ('weight', '=', 3)
         ]

@@ -41,9 +41,37 @@ def main():
             data_by_criteria.append(i)
             data_copy.remove(i)
 
+    #Ordenar cada registro por prioridad de mayor a menor
+    #Por cada registro que se haya filtrado por los criterios
+    for i in data_by_criteria:
 
+        #Se inicializa una variable en False para despues validar si el registro tiene una prioridad mayor a los registros ya ordenados o menor
+        high_priority = False
 
-    print(data_by_criteria)
+        #Se iteran por cada indice de la lista ordenada
+        #(Si la lista está vacia, no entra al for y high_priority se mantiene en False por lo que se agrega "i" como primer objeto de la lista ordenada)
+        for j in range(len(data_ordered_by_priority)):
+            
+            #Si la prioridad del registro actual es mayor a la prioridad del registro en la posición j de la lista ordenada
+            if i['priority'] > data_ordered_by_priority[j]['priority']:
+                
+                #Se inserta el registro en la posición j de la lista ordenada, quedando por delante de los registros con menor prioridad incluyendo el de la posicion "j"
+                #Se puede usar el .insert() en vez de hacer un slice de la lista y agregar el registro en la posición j
+                data_ordered_by_priority[j:j] = [i]
+
+                #Se cambia la variable high_priority a True para no agregar el registro al final de la lista ordenada
+                high_priority = True
+                #Se termina el ciclo
+                break
+        
+        #Si high_priority es False (Osea, si la prioridad del registro actual es menor a la prioridad de todos los registros ya ordenados o si la lista ordenada está vacía)
+        #Se agrega el registro al final de la lista ordenada
+        if high_priority == False:
+            data_ordered_by_priority.append(i)
+
+    #Se añaden los registros que no cumplieron con los criterios al final de la lista ordenada       
+    data_ordered_by_priority.extend(data_copy)
+    print(data_ordered_by_priority)
 
 if __name__ == '__main__':
     main()
