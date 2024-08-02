@@ -20,7 +20,7 @@ def main():
 
             #Según la operación que esté en el criterio, se evalúa que NO se cumpla dicho criterio, comparando los valores del registro con el valor del criterio según el campo que se escoge
             #Si el criterio NO se cumple se cambia la variable de validación a False para que no se añada a la lista de data_by_criteria
-            #Esto se hace por cada criterio, si NO cumple con alguno, no se añade a la lista
+            #Esto se hace por cada criterio, si NO cumple con alguno, no se añade a la lista, esto lo hice para que se puedan añadir mas de un criterio, ya que previamente habia probado solo con uno.
             if operation == '=' and i[field] != value:
                 validation = False
             if operation == '>' and i[field] <= value:
