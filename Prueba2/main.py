@@ -9,7 +9,27 @@ def main():
     #Lista de data (anteriormente ordenada por criterios), ordenada por prioridad de mayor a menor
     data_ordered_by_priority = []
     
-    #Ordenar la lista de datos por criterio
+    #Envio la lista vacia data_by_criteria para que se le añadan los registros que cumplan con los criterios
+    #Y la lista data_copy para que se le eliminen los registros que ya se hayan filtrado por los criterios, para que solo cuente con los registros NO filtrados por criterio y añadirlos al final.
+    order_data_by_criteria(data_by_criteria, data_copy)
+
+
+    #Envio la lista de registros filtrados por criterio y la lista vacia data_ordered_by_priority 
+    #para que se añadan los registros previamente ordenados por criterio y por prioridad de mayor a menor
+    order_data_by_priority(data_by_criteria, data_ordered_by_priority)
+
+    #Se añaden los registros que no cumplieron con los criterios al final de la lista ordenada       
+    data_ordered_by_priority.extend(data_copy)
+
+    #Se imprime la lista ordenada, donde los primeros registros son los que fueron filtrados por los criterios ingresados, y ademas, ordenados por el campo
+    #"priority", de mayor a menor, el resto de registros son los que no fueron filtrados por criterio, se añaden al final de la lista.
+    #En caso de que ningun registro cumpla con los criterios ingresados, se muestran todos los registros sin ordenar.
+    print(data_ordered_by_priority)
+
+#Ordenar la lista de datos por criterio
+def order_data_by_criteria(data_by_criteria, data_copy):
+
+    
     #Por cada registro en data
     for i in data:
 
@@ -41,7 +61,9 @@ def main():
             data_by_criteria.append(i)
             data_copy.remove(i)
 
-    #Ordenar cada registro por prioridad de mayor a menor
+#Ordenar cada registro previamente ordenado por criterio, por prioridad de mayor a menor
+def order_data_by_priority(data_by_criteria, data_ordered_by_priority):
+
     #Por cada registro que se haya filtrado por los criterios
     for i in data_by_criteria:
 
@@ -69,9 +91,6 @@ def main():
         if high_priority == False:
             data_ordered_by_priority.append(i)
 
-    #Se añaden los registros que no cumplieron con los criterios al final de la lista ordenada       
-    data_ordered_by_priority.extend(data_copy)
-    print(data_ordered_by_priority)
 
 if __name__ == '__main__':
     main()
