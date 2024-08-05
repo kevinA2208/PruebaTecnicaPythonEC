@@ -11,5 +11,5 @@ A partir de este archivo se extrae información para despues usarla en el códig
 En este archivo se encuentra el código base con la función main, cuya función hace uso de otras funciones dependiendo de la prueba, para poder completar su solución.
 También hace uso de la información guardada en su respectivo archivo *input.py*, a excepción de la palabra clave o Keyword que se requiere en la prueba 1 para poder saber cuantas veces esta la palabra en el texto o párrafo, ya que dicha palabra se solicita por medio de la consola, al hacer uso de la función *.input()*.
 
-He utilizado algunas funciones nativas de python que he visto requeridas, como por ejemplo la función *.lower()*, ya que no veía muy necesario hacer una cadena de if para normalizar cada letra del abecedario. O por ejemplo la función .insert() en una lista, para añadir datos de otra lista al final de una en especifico.
+He utilizado algunas funciones nativas de python que he visto requeridas, como por ejemplo la función *.lower()*, ya que no veía muy necesario hacer una cadena de if para normalizar cada letra del abecedario.
 En el código se encuentran comentarios explicativos para detallar mas el funcionamiento de cada línea o función
