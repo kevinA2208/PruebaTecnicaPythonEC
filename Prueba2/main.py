@@ -19,7 +19,7 @@ def main():
     order_data_by_priority(data_by_criteria, data_ordered_by_priority)
 
     #Se añaden los registros que no cumplieron con los criterios al final de la lista ordenada       
-    data_ordered_by_priority.extend(data_copy)
+    add_unfiltered_data(data_ordered_by_priority, data_copy)
 
     #Se imprime la lista ordenada, donde los primeros registros son los que fueron filtrados por los criterios ingresados, y ademas, ordenados por el campo
     #"priority", de mayor a menor, el resto de registros son los que no fueron filtrados por criterio, se añaden al final de la lista.
@@ -90,6 +90,11 @@ def order_data_by_priority(data_by_criteria, data_ordered_by_priority):
         #Se agrega el registro al final de la lista ordenada
         if high_priority == False:
             data_ordered_by_priority.append(i)
+
+#Añadir por cada registro de la lista data_copy (Datos que no fueron filtrados por criterio), al final de la lista ordenada por criterio y prioridad
+def add_unfiltered_data(data_ordered_by_priority, data_copy):
+    for record in data_copy:
+        data_ordered_by_priority.append(record)
 
 
 if __name__ == '__main__':
